@@ -5,4 +5,6 @@ class Session < ApplicationRecord
 
   # Validations
 
+  validates :want_offer_id, :presence => true
+
 end
