@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "wants#index"
   # Routes for the Want_offer resource:
   # CREATE
   get "/want_offers/new", :controller => "want_offers", :action => "new"
