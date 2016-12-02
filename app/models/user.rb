@@ -14,6 +14,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :sessions,
+             :through => :offers,
+             :source => :sessions
+
   # Validations
 
   # Include default devise modules. Others available are:

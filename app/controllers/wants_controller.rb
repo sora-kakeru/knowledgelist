@@ -11,7 +11,7 @@ class WantsController < ApplicationController
 
   def index
     @q = Want.ransack(params[:q])
-    @wants = @q.result(:distinct => true).includes(:user, :counselors_likes, :wants_tags, :want_offers, :tags).page(params[:page]).per(10)
+    @wants = @q.result(:distinct => true).includes(:user, :counselors_likes, :wants_tags, :want_offers, :tags, :sessions).page(params[:page]).per(10)
 
     render("wants/index.html.erb")
   end

@@ -16,6 +16,10 @@ class Want < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :sessions,
+             :through => :want_offers,
+             :source => :session
+
   has_many   :tags,
              :through => :wants_tags,
              :source => :tag
