@@ -1,6 +1,8 @@
 class WantTag < ApplicationRecord
   # Direct associations
 
+  belongs_to :tag
+
   belongs_to :want
 
   # Indirect associations
