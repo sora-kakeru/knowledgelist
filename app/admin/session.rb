@@ -1,5 +1,7 @@
 ActiveAdmin.register Session do
 
+ permit_params :date_time, :comment, :user_stars, :offer_stars, :want_offer_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
