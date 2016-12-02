@@ -16,7 +16,7 @@
 
       <% @offer_tags.each do |offer_tag| %>
       <tr>
-        <td><%= offer_tag.offer_id %></td>
+        <td><%= offer_tag.offer.counselor_id %></td>
         <td><%= offer_tag.tag_id %></td>
         <td>
           <a href="/offer_tags/<%= offer_tag.id %>" class="btn btn-primary">Show</a>
