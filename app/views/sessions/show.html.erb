@@ -18,7 +18,13 @@
       <dd><%= @session.offer_stars %></dd>
 
       <dt>Want offer</dt>
-      <dd><%= @session.want_offer_id %></dd>
+      <dd>
+        <% if @session.want_offer.present? %>
+          <a href="/want_offers/<%= @session.want_offer_id %>">
+            <%= @session.want_offer.want_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

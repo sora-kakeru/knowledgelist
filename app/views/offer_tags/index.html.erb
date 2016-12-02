@@ -16,8 +16,20 @@
 
       <% @offer_tags.each do |offer_tag| %>
       <tr>
-        <td><%= offer_tag.offer.counselor_id %></td>
-        <td><%= offer_tag.tag.tag %></td>
+        <td>
+          <% if offer_tag.offer.present? %>
+            <a href="/offers/<%= offer_tag.offer.id %>">
+              <%= offer_tag.offer.counselor_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if offer_tag.tag.present? %>
+            <a href="/tags/<%= offer_tag.tag.id %>">
+              <%= offer_tag.tag.tag %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/offer_tags/<%= offer_tag.id %>" class="btn btn-primary">Show</a>
           <a href="/offer_tags/<%= offer_tag.id %>/edit" class="btn btn-warning">Edit</a>

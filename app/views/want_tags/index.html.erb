@@ -16,8 +16,20 @@
 
       <% @want_tags.each do |want_tag| %>
       <tr>
-        <td><%= want_tag.want.user_id %></td>
-        <td><%= want_tag.tag.tag %></td>
+        <td>
+          <% if want_tag.want.present? %>
+            <a href="/wants/<%= want_tag.want.id %>">
+              <%= want_tag.want.user_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if want_tag.tag.present? %>
+            <a href="/tags/<%= want_tag.tag.id %>">
+              <%= want_tag.tag.tag %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/want_tags/<%= want_tag.id %>" class="btn btn-primary">Show</a>
           <a href="/want_tags/<%= want_tag.id %>/edit" class="btn btn-warning">Edit</a>

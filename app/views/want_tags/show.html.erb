@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Want</dt>
-      <dd><%= @want_tag.want_id %></dd>
+      <dd>
+        <% if @want_tag.want.present? %>
+          <a href="/wants/<%= @want_tag.want_id %>">
+            <%= @want_tag.want.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Tag</dt>
-      <dd><%= @want_tag.tag_id %></dd>
+      <dd>
+        <% if @want_tag.tag.present? %>
+          <a href="/tags/<%= @want_tag.tag_id %>">
+            <%= @want_tag.tag.tag %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

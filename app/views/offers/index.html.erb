@@ -16,7 +16,13 @@
 
       <% @offers.each do |offer| %>
       <tr>
-        <td><%= offer.user.created_at %></td>
+        <td>
+          <% if offer.user.present? %>
+            <a href="/users/<%= offer.user.id %>">
+              <%= offer.user.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= offer.offers %></td>
         <td>
           <a href="/offers/<%= offer.id %>" class="btn btn-primary">Show</a>

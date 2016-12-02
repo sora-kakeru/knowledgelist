@@ -17,8 +17,20 @@
 
       <% @want_offers.each do |want_offer| %>
       <tr>
-        <td><%= want_offer.offer.counselor_id %></td>
-        <td><%= want_offer.want.user_id %></td>
+        <td>
+          <% if want_offer.offer.present? %>
+            <a href="/offers/<%= want_offer.offer.id %>">
+              <%= want_offer.offer.counselor_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if want_offer.want.present? %>
+            <a href="/wants/<%= want_offer.want.id %>">
+              <%= want_offer.want.user_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= want_offer.match %></td>
         <td>
           <a href="/want_offers/<%= want_offer.id %>" class="btn btn-primary">Show</a>
