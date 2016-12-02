@@ -16,6 +16,9 @@ class WantsController < ApplicationController
   end
 
   def show
+    @want_offer = WantOffer.new
+    @want_tag = WantTag.new
+    @counselor_like = CounselorLike.new
     @want = Want.find(params[:id])
 
     render("wants/show.html.erb")

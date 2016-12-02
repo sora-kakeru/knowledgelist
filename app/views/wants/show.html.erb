@@ -56,6 +56,37 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_counselor_like" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for want_id -->
+      <input type="hidden" name="want_id" value="<%= @want.id %>">
+
+      <!-- Label and input for counselor_id -->
+      <div class="form-group">
+        <label for="counselor_id" class="control-label">
+          Counselor
+        </label>
+
+        <%= select_tag(:counselor_id, options_from_collection_for_select(User.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for like -->
+      <div class="checkbox">
+        <label for="like">
+          <input type="checkbox" id="like" name="like" value="1" <%= "checked" if @counselor_like.like %>>
+          Like
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Counselor Like
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -87,6 +118,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_want_tag" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for want_id -->
+      <input type="hidden" name="want_id" value="<%= @want.id %>">
+
+      <!-- Label and input for tag_id -->
+      <div class="form-group">
+        <label for="tag_id" class="control-label">
+          Tag
+        </label>
+
+        <%= select_tag(:tag_id, options_from_collection_for_select(Tag.all, :id, :tag), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Want Tag
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -118,6 +172,37 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_want_offer" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for offer_id -->
+      <div class="form-group">
+        <label for="offer_id" class="control-label">
+          Offer
+        </label>
+
+        <%= select_tag(:offer_id, options_from_collection_for_select(Offer.all, :id, :counselor_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for want_id -->
+      <input type="hidden" name="want_id" value="<%= @want.id %>">
+
+      <!-- Label and input for match -->
+      <div class="checkbox">
+        <label for="match">
+          <input type="checkbox" id="match" name="match" value="1" <%= "checked" if @want_offer.match %>>
+          Match
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Want Offer
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

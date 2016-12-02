@@ -54,6 +54,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_offer_tag" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for offer_id -->
+      <input type="hidden" name="offer_id" value="<%= @offer.id %>">
+
+      <!-- Label and input for tag_id -->
+      <div class="form-group">
+        <label for="tag_id" class="control-label">
+          Tag
+        </label>
+
+        <%= select_tag(:tag_id, options_from_collection_for_select(Tag.all, :id, :tag), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Offer Tag
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -85,6 +108,37 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_want_offer" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for offer_id -->
+      <input type="hidden" name="offer_id" value="<%= @offer.id %>">
+
+      <!-- Label and input for want_id -->
+      <div class="form-group">
+        <label for="want_id" class="control-label">
+          Want
+        </label>
+
+        <%= select_tag(:want_id, options_from_collection_for_select(Want.all, :id, :user_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for match -->
+      <div class="checkbox">
+        <label for="match">
+          <input type="checkbox" id="match" name="match" value="1" <%= "checked" if @want_offer.match %>>
+          Match
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Want Offer
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

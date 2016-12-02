@@ -6,6 +6,8 @@ class OffersController < ApplicationController
   end
 
   def show
+    @want_offer = WantOffer.new
+    @offer_tag = OfferTag.new
     @offer = Offer.find(params[:id])
 
     render("offers/show.html.erb")
