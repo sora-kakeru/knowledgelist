@@ -60,7 +60,7 @@
           Want offer
         </label>
 
-        <input type="text" id="want_offer_id" name="want_offer_id" placeholder="Want offer" class="form-control" value="<%= @session.want_offer_id %>">
+        <%= select_tag(:want_offer_id, options_from_collection_for_select(WantOffer.all, :id, :want_id, @session.want_offer_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
