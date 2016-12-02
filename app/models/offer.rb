@@ -5,4 +5,6 @@ class Offer < ApplicationRecord
 
   # Validations
 
+  validates :offers, :presence => true
+
 end
