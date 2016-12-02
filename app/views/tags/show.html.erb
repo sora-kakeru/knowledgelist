@@ -23,3 +23,127 @@
     </div>
   </div>
 </div>
+
+<!-- A Tag has many offers_tags -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Offers_tags
+      </li>
+
+      <% @tag.offers_tags.each do |offer_tag| %>
+        <li class="list-group-item">
+          <a href="/offer_tags/<%= offer_tag.id %>">
+            <%= offer_tag.offer_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/offer_tags/<%= offer_tag.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/offer_tags/<%= offer_tag.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_offer_tag/<%= offer_tag.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Tag has many wants_tags -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Wants_tags
+      </li>
+
+      <% @tag.wants_tags.each do |want_tag| %>
+        <li class="list-group-item">
+          <a href="/want_tags/<%= want_tag.id %>">
+            <%= want_tag.want_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/want_tags/<%= want_tag.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/want_tags/<%= want_tag.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_want_tag/<%= want_tag.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Tag has many wants -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Wants
+      </li>
+
+      <% @tag.wants.each do |want| %>
+        <li class="list-group-item">
+          <a href="/wants/<%= want.id %>">
+            <%= want.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/wants/<%= want.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/wants/<%= want.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_want/<%= want.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Tag has many offers -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Offers
+      </li>
+
+      <% @tag.offers.each do |offer| %>
+        <li class="list-group-item">
+          <a href="/offers/<%= offer.id %>">
+            <%= offer.counselor_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/offers/<%= offer.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/offers/<%= offer.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_offer/<%= offer.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
