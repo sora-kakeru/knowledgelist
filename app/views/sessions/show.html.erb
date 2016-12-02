@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Session #<%= @session.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Date time</dt>
+      <dd><%= @session.date_time %></dd>
+
+      <dt>Comment</dt>
+      <dd><%= @session.comment %></dd>
+
+      <dt>User stars</dt>
+      <dd><%= @session.user_stars %></dd>
+
+      <dt>Offer stars</dt>
+      <dd><%= @session.offer_stars %></dd>
+
+      <dt>Want offer</dt>
+      <dd><%= @session.want_offer_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/sessions" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/sessions/<%= @session.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_session/<%= @session.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
