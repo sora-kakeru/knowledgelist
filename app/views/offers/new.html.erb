@@ -24,7 +24,7 @@
           Counselor
         </label>
 
-        <input type="text" id="counselor_id" name="counselor_id" placeholder="Counselor" class="form-control" value="<%= @offer.counselor_id %>">
+        <%= select_tag(:counselor_id, options_from_collection_for_select(User.all, :id, :created_at, @offer.counselor_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for offers -->
