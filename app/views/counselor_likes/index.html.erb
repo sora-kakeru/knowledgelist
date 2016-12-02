@@ -18,7 +18,7 @@
       <% @counselor_likes.each do |counselor_like| %>
       <tr>
         <td><%= counselor_like.want.user_id %></td>
-        <td><%= counselor_like.counselor_id %></td>
+        <td><%= counselor_like.counselor.created_at %></td>
         <td><%= counselor_like.like %></td>
         <td>
           <a href="/counselor_likes/<%= counselor_like.id %>" class="btn btn-primary">Show</a>
