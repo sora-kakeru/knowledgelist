@@ -13,6 +13,10 @@ class Offer < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :sessions,
+             :through => :want_offers,
+             :source => :session
+
   has_many   :tags,
              :through => :offers_tags,
              :source => :tag

@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def index
     @q = Session.ransack(params[:q])
-    @sessions = @q.result(:distinct => true).includes(:want_offer).page(params[:page]).per(10)
+    @sessions = @q.result(:distinct => true).includes(:want_offer, :user, :offer).page(params[:page]).per(10)
 
     render("sessions/index.html.erb")
   end
