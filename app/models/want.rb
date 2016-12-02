@@ -5,6 +5,8 @@ class Want < ApplicationRecord
 
   # Validations
 
+  validates :user_id, :presence => true
+
   validates :wants, :presence => true
 
 end
