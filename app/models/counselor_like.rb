@@ -5,4 +5,6 @@ class CounselorLike < ApplicationRecord
 
   # Validations
 
+  validates :want_id, :presence => true
+
 end
