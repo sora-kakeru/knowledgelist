@@ -1,6 +1,7 @@
 class OfferTagsController < ApplicationController
   def index
-    @offer_tags = OfferTag.page(params[:page]).per(10)
+    @q = OfferTag.ransack(params[:q])
+    @offer_tags = @q.result(:distinct => true).includes(:offer, :tag).page(params[:page]).per(10)
 
     render("offer_tags/index.html.erb")
   end

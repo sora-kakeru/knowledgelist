@@ -1,6 +1,7 @@
 class WantTagsController < ApplicationController
   def index
-    @want_tags = WantTag.page(params[:page]).per(10)
+    @q = WantTag.ransack(params[:q])
+    @want_tags = @q.result(:distinct => true).includes(:want, :tag).page(params[:page]).per(10)
 
     render("want_tags/index.html.erb")
   end

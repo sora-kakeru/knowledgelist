@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
   def index
-    @offers = Offer.page(params[:page]).per(10)
+    @q = Offer.ransack(params[:q])
+    @offers = @q.result(:distinct => true).includes(:user, :offers_tags, :want_offers, :tags).page(params[:page]).per(10)
 
     render("offers/index.html.erb")
   end

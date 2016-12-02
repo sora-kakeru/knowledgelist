@@ -1,6 +1,7 @@
 class CounselorLikesController < ApplicationController
   def index
-    @counselor_likes = CounselorLike.page(params[:page]).per(10)
+    @q = CounselorLike.ransack(params[:q])
+    @counselor_likes = @q.result(:distinct => true).includes(:counselor, :want).page(params[:page]).per(10)
 
     render("counselor_likes/index.html.erb")
   end
