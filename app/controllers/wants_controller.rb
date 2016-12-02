@@ -1,4 +1,14 @@
 class WantsController < ApplicationController
+  before_action :current_user_must_be_want_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_want_user
+    want = Want.find(params[:id])
+
+    unless current_user == want.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @wants = Want.all
 
