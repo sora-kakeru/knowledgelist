@@ -5,4 +5,6 @@ class WantTag < ApplicationRecord
 
   # Validations
 
+  validates :want_id, :presence => true
+
 end
