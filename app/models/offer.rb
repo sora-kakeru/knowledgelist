@@ -1,6 +1,9 @@
 class Offer < ApplicationRecord
   # Direct associations
 
+  has_many   :want_offers,
+             :dependent => :destroy
+
   has_many   :offers_tags,
              :class_name => "OfferTag",
              :dependent => :destroy

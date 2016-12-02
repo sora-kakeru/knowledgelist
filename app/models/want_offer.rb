@@ -1,6 +1,8 @@
 class WantOffer < ApplicationRecord
   # Direct associations
 
+  belongs_to :offer
+
   belongs_to :want
 
   # Indirect associations
