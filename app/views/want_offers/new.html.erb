@@ -33,7 +33,7 @@
           Want
         </label>
 
-        <input type="text" id="want_id" name="want_id" placeholder="Want" class="form-control" value="<%= @want_offer.want_id %>">
+        <%= select_tag(:want_id, options_from_collection_for_select(Want.all, :id, :user_id, @want_offer.want_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for match -->
