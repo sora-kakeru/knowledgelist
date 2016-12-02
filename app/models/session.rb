@@ -5,6 +5,18 @@ class Session < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :offer,
+             :through => :want_offer,
+             :source => :offer
+
+  has_one    :want,
+             :through => :want_offer,
+             :source => :want
+
+  has_one    :user,
+             :through => :offer,
+             :source => :user
+
   # Validations
 
   validates :date_time, :presence => true

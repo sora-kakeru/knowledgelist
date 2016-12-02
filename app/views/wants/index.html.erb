@@ -98,6 +98,46 @@
       <%= f.text_field :tags_tag_cont, :class => "form-control", :placeholder => "Tag tag contains" %>
     </div>
 
+<div class="form-group">
+          <%= f.label :created_at, "Session Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='sessionsgteqcreated_atPicker'>
+                  <%= f.text_field :sessions_created_at_gteq, :class => "form-control", :placeholder => "Session Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='sessionslteqcreated_atPicker'>
+                  <%= f.text_field :sessions_created_at_lteq, :class => "form-control", :placeholder => "Session Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#sessionsgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#sessionslteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#sessionsgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#sessionslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#sessionslteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#sessionsgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
       <a href="/wants" class="btn btn-default btn-block mb-1">Clear filters</a>
