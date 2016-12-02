@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Want_tag resource:
+  # CREATE
+  get "/want_tags/new", :controller => "want_tags", :action => "new"
+  post "/create_want_tag", :controller => "want_tags", :action => "create"
+
+  # READ
+  get "/want_tags", :controller => "want_tags", :action => "index"
+  get "/want_tags/:id", :controller => "want_tags", :action => "show"
+
+  # UPDATE
+  get "/want_tags/:id/edit", :controller => "want_tags", :action => "edit"
+  post "/update_want_tag/:id", :controller => "want_tags", :action => "update"
+
+  # DELETE
+  get "/delete_want_tag/:id", :controller => "want_tags", :action => "destroy"
+  #------------------------------
+
   # Routes for the Offer_tag resource:
   # CREATE
   get "/offer_tags/new", :controller => "offer_tags", :action => "new"
