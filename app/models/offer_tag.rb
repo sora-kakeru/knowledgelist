@@ -1,6 +1,8 @@
 class OfferTag < ApplicationRecord
   # Direct associations
 
+  belongs_to :tag
+
   belongs_to :offer
 
   # Indirect associations
