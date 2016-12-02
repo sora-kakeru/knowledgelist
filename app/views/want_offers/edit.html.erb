@@ -1,0 +1,54 @@
+<!-- Validation failure messages -->
+<% if @want_offer.errors.any? %>
+  <% @want_offer.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Want Offer #<%= @want_offer.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_want_offer/<%= @want_offer.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for offer_id -->
+      <div class="form-group">
+        <label for="offer_id" class="control-label">
+          Offer
+        </label>
+
+        <input type="text" id="offer_id" name="offer_id" placeholder="Offer" class="form-control" value="<%= @want_offer.offer_id %>">
+      </div>
+
+      <!-- Label and input for want_id -->
+      <div class="form-group">
+        <label for="want_id" class="control-label">
+          Want
+        </label>
+
+        <input type="text" id="want_id" name="want_id" placeholder="Want" class="form-control" value="<%= @want_offer.want_id %>">
+      </div>
+
+      <!-- Label and input for match -->
+      <div class="checkbox">
+        <label for="match">
+          <input type="checkbox" id="match" name="match" value="1" <%= "checked" if @want_offer.match %>>
+          Match
+        </label>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Want Offer
+      </button>
+      or
+      <a href="/want_offers/<%= @want_offer.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

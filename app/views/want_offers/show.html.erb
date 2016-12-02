@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Want Offer #<%= @want_offer.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Offer</dt>
+      <dd><%= @want_offer.offer_id %></dd>
+
+      <dt>Want</dt>
+      <dd><%= @want_offer.want_id %></dd>
+
+      <dt>Match</dt>
+      <dd><%= @want_offer.match %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/want_offers" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/want_offers/<%= @want_offer.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_want_offer/<%= @want_offer.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
