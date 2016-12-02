@@ -1,6 +1,10 @@
 class Offer < ApplicationRecord
   # Direct associations
 
+  has_many   :offers_tags,
+             :class_name => "OfferTag",
+             :dependent => :destroy
+
   belongs_to :user,
              :foreign_key => "counselor_id"
 
