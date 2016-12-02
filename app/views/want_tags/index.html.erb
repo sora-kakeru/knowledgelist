@@ -16,7 +16,7 @@
 
       <% @want_tags.each do |want_tag| %>
       <tr>
-        <td><%= want_tag.want_id %></td>
+        <td><%= want_tag.want.user_id %></td>
         <td><%= want_tag.tag_id %></td>
         <td>
           <a href="/want_tags/<%= want_tag.id %>" class="btn btn-primary">Show</a>
