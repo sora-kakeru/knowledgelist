@@ -5,4 +5,6 @@ class OfferTag < ApplicationRecord
 
   # Validations
 
+  validates :tag_id, :presence => true
+
 end
