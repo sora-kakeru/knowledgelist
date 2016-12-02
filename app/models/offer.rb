@@ -13,6 +13,10 @@ class Offer < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :tags,
+             :through => :offers_tags,
+             :source => :tag
+
   # Validations
 
   validates :counselor_id, :uniqueness => { :scope => [:offers] }

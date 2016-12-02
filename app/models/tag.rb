@@ -11,6 +11,10 @@ class Tag < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :offers,
+             :through => :offers_tags,
+             :source => :offer
+
   has_many   :wants,
              :through => :wants_tags,
              :source => :want
