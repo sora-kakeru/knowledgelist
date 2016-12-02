@@ -5,6 +5,8 @@ class Tag < ApplicationRecord
 
   # Validations
 
+  validates :tag, :uniqueness => true
+
   validates :tag, :presence => true
 
 end
