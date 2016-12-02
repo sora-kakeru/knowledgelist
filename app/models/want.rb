@@ -1,6 +1,10 @@
 class Want < ApplicationRecord
   # Direct associations
 
+  has_many   :counselors_likes,
+             :class_name => "CounselorLike",
+             :dependent => :destroy
+
   belongs_to :user
 
   # Indirect associations

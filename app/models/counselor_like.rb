@@ -1,6 +1,9 @@
 class CounselorLike < ApplicationRecord
   # Direct associations
 
+  belongs_to :want,
+             :counter_cache => :counselors_likes_count
+
   belongs_to :counselor,
              :class_name => "User"
 
