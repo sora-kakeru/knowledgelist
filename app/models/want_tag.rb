@@ -5,6 +5,8 @@ class WantTag < ApplicationRecord
 
   # Validations
 
+  validates :want_id, :uniqueness => true
+
   validates :want_id, :presence => true
 
 end
