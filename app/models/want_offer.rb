@@ -5,6 +5,8 @@ class WantOffer < ApplicationRecord
 
   # Validations
 
+  validates :match, :presence => true
+
   validates :offer_id, :uniqueness => { :scope => [:want_id] }
 
   validates :offer_id, :presence => true
