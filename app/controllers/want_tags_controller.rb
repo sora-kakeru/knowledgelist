@@ -1,6 +1,6 @@
 class WantTagsController < ApplicationController
   def index
-    @want_tags = WantTag.all
+    @want_tags = WantTag.page(params[:page]).per(10)
 
     render("want_tags/index.html.erb")
   end

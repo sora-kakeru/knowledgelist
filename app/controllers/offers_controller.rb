@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
   def index
-    @offers = Offer.all
+    @offers = Offer.page(params[:page]).per(10)
 
     render("offers/index.html.erb")
   end

@@ -10,7 +10,7 @@ class WantsController < ApplicationController
   end
 
   def index
-    @wants = Want.all
+    @wants = Want.page(params[:page]).per(10)
 
     render("wants/index.html.erb")
   end

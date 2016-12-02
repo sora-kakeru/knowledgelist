@@ -1,6 +1,6 @@
 class OfferTagsController < ApplicationController
   def index
-    @offer_tags = OfferTag.all
+    @offer_tags = OfferTag.page(params[:page]).per(10)
 
     render("offer_tags/index.html.erb")
   end
