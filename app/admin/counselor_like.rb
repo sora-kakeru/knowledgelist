@@ -1,5 +1,7 @@
 ActiveAdmin.register CounselorLike do
 
+ permit_params :want_id, :counselor_id, :like
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
