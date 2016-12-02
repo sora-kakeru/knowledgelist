@@ -1,0 +1,54 @@
+<!-- Validation failure messages -->
+<% if @counselor_like.errors.any? %>
+  <% @counselor_like.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Counselor Like</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_counselor_like" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for want_id -->
+      <div class="form-group">
+        <label for="want_id" class="control-label">
+          Want
+        </label>
+
+        <input type="text" id="want_id" name="want_id" placeholder="Want" class="form-control" value="<%= @counselor_like.want_id %>">
+      </div>
+
+      <!-- Label and input for counselor_id -->
+      <div class="form-group">
+        <label for="counselor_id" class="control-label">
+          Counselor
+        </label>
+
+        <input type="text" id="counselor_id" name="counselor_id" placeholder="Counselor" class="form-control" value="<%= @counselor_like.counselor_id %>">
+      </div>
+
+      <!-- Label and input for like -->
+      <div class="checkbox">
+        <label for="like">
+          <input type="checkbox" id="like" name="like" value="1" <%= "checked" if @counselor_like.like %>>
+          Like
+        </label>
+      </div>
+
+      <button class="btn btn-success">
+        Create Counselor Like
+      </button>
+      or
+      <a href="/counselor_likes">Cancel</a>
+    </form>
+  </div>
+</div>
