@@ -5,6 +5,8 @@ class Offer < ApplicationRecord
 
   # Validations
 
+  validates :counselor_id, :uniqueness => { :scope => [:offers] }
+
   validates :counselor_id, :presence => true
 
   validates :offers, :presence => true
