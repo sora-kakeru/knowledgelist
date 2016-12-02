@@ -1,6 +1,9 @@
 class Want < ApplicationRecord
   # Direct associations
 
+  has_many   :want_offers,
+             :dependent => :destroy
+
   has_many   :wants_tags,
              :class_name => "WantTag",
              :dependent => :destroy
