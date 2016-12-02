@@ -24,7 +24,7 @@
           Offer
         </label>
 
-        <input type="text" id="offer_id" name="offer_id" placeholder="Offer" class="form-control" value="<%= @want_offer.offer_id %>">
+        <%= select_tag(:offer_id, options_from_collection_for_select(Offer.all, :id, :counselor_id, @want_offer.offer_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for want_id -->
