@@ -5,6 +5,8 @@ class Session < ApplicationRecord
 
   # Validations
 
+  validates :date_time, :presence => true
+
   validates :offer_stars, :presence => true
 
   validates :offer_stars, :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 1 }
