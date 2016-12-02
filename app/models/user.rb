@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :counselor_likes,
+             :foreign_key => "counselor_id",
+             :dependent => :destroy
+
   has_many   :offers,
              :foreign_key => "counselor_id",
              :dependent => :destroy

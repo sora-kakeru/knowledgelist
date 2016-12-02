@@ -1,6 +1,9 @@
 class CounselorLike < ApplicationRecord
   # Direct associations
 
+  belongs_to :counselor,
+             :class_name => "User"
+
   # Indirect associations
 
   # Validations
