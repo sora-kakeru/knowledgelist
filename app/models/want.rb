@@ -16,6 +16,10 @@ class Want < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :tags,
+             :through => :wants_tags,
+             :source => :tag
+
   # Validations
 
   validates :user_id, :uniqueness => { :scope => [:wants] }
