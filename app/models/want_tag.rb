@@ -1,6 +1,8 @@
 class WantTag < ApplicationRecord
   # Direct associations
 
+  belongs_to :want
+
   # Indirect associations
 
   # Validations
