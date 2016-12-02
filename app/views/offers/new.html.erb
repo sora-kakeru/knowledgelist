@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @offer.errors.any? %>
+  <% @offer.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Offer</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_offer" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for counselor_id -->
+      <div class="form-group">
+        <label for="counselor_id" class="control-label">
+          Counselor
+        </label>
+
+        <input type="text" id="counselor_id" name="counselor_id" placeholder="Counselor" class="form-control" value="<%= @offer.counselor_id %>">
+      </div>
+
+      <!-- Label and input for offers -->
+      <div class="form-group">
+        <label for="offers" class="control-label">
+          Offers
+        </label>
+
+        <input type="text" id="offers" name="offers" placeholder="Offers" class="form-control" value="<%= @offer.offers %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Offer
+      </button>
+      or
+      <a href="/offers">Cancel</a>
+    </form>
+  </div>
+</div>

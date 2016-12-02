@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Offer resource:
+  # CREATE
+  get "/offers/new", :controller => "offers", :action => "new"
+  post "/create_offer", :controller => "offers", :action => "create"
+
+  # READ
+  get "/offers", :controller => "offers", :action => "index"
+  get "/offers/:id", :controller => "offers", :action => "show"
+
+  # UPDATE
+  get "/offers/:id/edit", :controller => "offers", :action => "edit"
+  post "/update_offer/:id", :controller => "offers", :action => "update"
+
+  # DELETE
+  get "/delete_offer/:id", :controller => "offers", :action => "destroy"
+  #------------------------------
+
   # Routes for the Want resource:
   # CREATE
   get "/wants/new", :controller => "wants", :action => "new"
