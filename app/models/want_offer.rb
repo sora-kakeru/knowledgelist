@@ -1,6 +1,9 @@
 class WantOffer < ApplicationRecord
   # Direct associations
 
+  has_one    :session,
+             :dependent => :destroy
+
   belongs_to :offer
 
   belongs_to :want

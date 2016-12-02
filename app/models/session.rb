@@ -1,6 +1,8 @@
 class Session < ApplicationRecord
   # Direct associations
 
+  belongs_to :want_offer
+
   # Indirect associations
 
   # Validations
